@@ -27,7 +27,7 @@ function App() {
       if (bmi < 18.5) {
         setMessage('You are underweight')
       } else if (bmi >= 18.5 && bmi < 24.9) {
-        setMessage('You are a healthy weight')
+        setMessage('You have healthy weight')
       } else {
         setMessage('You are overweight')
       }
@@ -36,6 +36,19 @@ function App() {
 
   //  show image based on bmi calculation
   let imgSrc;
+
+  if (bmi < 1) {
+    imgSrc = null
+  } else {
+    if(bmi < 18.55) {
+      imgSrc = require('../src/assets/underweight.png')
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+      imgSrc = require('../src/assets/healthy.png')
+    } else {
+      imgSrc = require('../src/assets/overweight.png')
+    }
+  }
+
 
   let reload = () => {
     window.location.reload()
